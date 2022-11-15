@@ -1,0 +1,24 @@
+import math
+print("Введите количесвто элементов массива")
+a = int(input())
+m = []
+k = 3
+print('Заполните массив')
+for i in range(a):
+    m.append(int(input()))
+    k += 2
+    n = m
+m = sorted(m)
+s = k + 1
+print("Отсортированный массив с помощью sort:", m, "Сложнось:",  int(k*math.log(k)))
+
+for j in range(a-1):
+    for i in range(len(n)-1):
+         if n[i] > n[i+1]:
+             n[i], n[i+1] = n[i+1], n[i]
+s += a * len(m) + 1
+print("Отсортированный массив")
+print(n)
+print("Сложность:", s)
+
+print("Разница:", s - int(k*math.log(k)))
