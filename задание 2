@@ -1,0 +1,72 @@
+#O(3n) = O(n)
+m = [1, 2, 3, 4, 5, 6, 7]
+n = []
+k = 3
+for i in range(len(m)):
+    n.append(i)
+k += len(m) + 1
+print("O(3n)")
+print(k)
+
+import math
+#O(nlog(n))
+m = [3, 5, 7, 3, 2, 1]
+k = 2
+m = sorted(m)
+k += k * math.log(len(m)) + 2
+print("O(nlog(n)")
+print(int(k))
+
+#O(n!)
+from itertools import permutations
+k = 3
+count = 0
+strr = ''
+for i in permutations('12345'):
+    strr = ''.join(i)
+    count += 1
+    k += 3
+print("O(n!)")
+print('number of permutations:', count)
+print(k)
+
+#O(n^3)
+m = [1, 2, 3, 4, 5, 6]
+s = 0
+k = 3
+for i in range(len(m)):
+    for j in range(len(m)):
+        for l in range(len(m)):
+            s += m[i] + m[j] + m[l]
+k += len(m)**3 + 1
+print("O(n^3)")
+print(k)
+
+#O(3log(n))
+m = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
+n = 0
+x = len(m) // 2
+l = 0
+h = len(m) - 1
+k = 6
+while m[x] != 3 and l <= h:
+    if 3 > m[x]:
+        l = x + 1
+    else:
+        h = x - 1
+    x = (l+h) // 2
+while m[x] != 4 and l <= h:
+    if 4 > m[x]:
+        l = x + 1
+    else:
+        h = x - 1
+    x = (l+h) // 2
+while m[x] != 5 and l <= h:
+    if 5 > m[x]:
+        l = x + 1
+    else:
+        h = x - 1
+    x = (l+h) // 2
+k += 3*math.log(len(m)) + 1
+print("O(3log(n)")
+print(int(k))
